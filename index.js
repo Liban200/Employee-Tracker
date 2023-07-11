@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const mysql = require('mysql2');
+const table = require('console.table');
 
 const db = mysql.createConnection({
     host: 'localhost',
@@ -88,6 +89,7 @@ function promptChoices() {
       console.log('Departments:');
       results.forEach((department) => {
         console.log(`- ${department.department_name}`);
+        console.table(results);
       });
   
       promptChoices();
@@ -105,6 +107,7 @@ function promptChoices() {
       console.log('Roles:');
       results.forEach((role) => {
         console.log(`- ${role.role_title}`);
+        console.table(results);
       });
   
       promptChoices();
@@ -122,6 +125,7 @@ function promptChoices() {
       console.log('Employees:');
       results.forEach((employee) => {
         console.log(`- ${employee.first_name} ${employee.last_name}`);
+        console.table(results);
       });
   
       promptChoices();
